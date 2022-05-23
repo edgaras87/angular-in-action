@@ -12,6 +12,7 @@
       </nav>
     </div>
   </header>
-  <main class="mdl-layout__content" style="padding: 20px;">
+  <main class="mdl-layout__content" style="padding: 20px;" *ngIf="stocks.length > 0">
+    <summary [stock]="stocks[0]">betkas</summary>
   </main>
 </div>
