@@ -6,16 +6,4 @@ import { StocksService, StockInterface } from './services/stocks.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'my stocks';
-
-  stocks: Array<StockInterface> = [];
-
-  constructor(service: StocksService) {
-    service.load(['AAPL'])?.subscribe(stocks => {
-      this.stocks = stocks;
-    });
-
-  }
-
-}
+export class AppComponent { }
