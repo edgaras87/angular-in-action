@@ -1,3 +1,9 @@
 <!--  access the component controller from the template -->
+<!--
 <app-navbar (onRefresh)="dashboard.generateData()"></app-navbar>
 <app-dashboard #dashboard></app-dashboard>
+-->
+
+<!-- access a child component’s controller inside a parent controller -->
+<app-navbar (onRefresh)="refresh()"></app-navbar>
+<app-dashboard></app-dashboard>
