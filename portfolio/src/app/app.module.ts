@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ClarityModule } from '@clr/angular';
 
 import { AppComponent } from './app.component';
+import { AccountService } from './services/account.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     ClarityModule
   ],
-  providers: [],
+  providers: [AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
