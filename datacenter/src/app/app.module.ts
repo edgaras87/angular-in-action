@@ -9,6 +9,7 @@ import { MetricComponent } from './metric/metric.component';
 import { NodesComponent } from './nodes/nodes.component';
 import { NodesRowComponent } from './nodes-row/nodes-row.component';
 import { NodesDetailComponent } from './nodes-detail/nodes-detail.component';
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
@@ -19,14 +20,16 @@ import { NodesDetailComponent } from './nodes-detail/nodes-detail.component';
     MetricComponent,
     NodesComponent,
     NodesRowComponent,
-    NodesDetailComponent
+    NodesDetailComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     NgbModule
   ],
   entryComponents: [
-    NodesDetailComponent
+    NodesDetailComponent,
+    AlertComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
