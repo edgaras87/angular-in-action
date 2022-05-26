@@ -5,6 +5,7 @@ import { Component, Output, EventEmitter, ViewEncapsulation } from '@angular/cor
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
+  // Component styles property
   styles: [`.btn {background-color: #999999; }`],
   encapsulation: ViewEncapsulation.Emulated
 })
