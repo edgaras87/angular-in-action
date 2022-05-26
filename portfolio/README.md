@@ -2,6 +2,10 @@
 A fantasy stock-trading application that uses generated data which changes several times a minute to 
 simulate real market changes.
 
+## Clarity UI library from a team at VMware
+Install packages
+npm install @clr/icons @clr/angular @clr/ui @cds/core @webcomponents/webcomponentsjs
+
 # Service
 
 ## Roles
