@@ -4,10 +4,12 @@ import { ClarityModule } from '@clr/angular';
 
 import { AppComponent } from './app.component';
 import { AccountService } from './services/account.service';
+import { StocksComponent } from './stocks/stocks.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StocksComponent
   ],
   imports: [
     BrowserModule,
