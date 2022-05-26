@@ -5,11 +5,13 @@ import { ClarityModule } from '@clr/angular';
 import { AppComponent } from './app.component';
 import { AccountService } from './services/account.service';
 import { StocksComponent } from './stocks/stocks.component';
+import { InvestmentsComponent } from './investments/investments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StocksComponent
+    StocksComponent,
+    InvestmentsComponent
   ],
   imports: [
     BrowserModule,
