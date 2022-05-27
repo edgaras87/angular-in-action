@@ -20,3 +20,20 @@ in the application’s main file.
 service to help manage the currently active alert on the page.
 - Data services are for sharing data across the application. An example is an object holding data for 
 the logged-in user.
+
+# Interceptor intercept(req: HttpRequest<any>, next: HttpHandler)
+
+##error solving
+(next: HttpHandler)
+next.handle(request).do() error appears due do method
+https://stackoverflow.com/questions/50209119/property-do-does-not-exist-on-type-observableiproduct
+
+## HttpRequest object, 
+has data about what URL is being called
+
+## HttpHandler object, 
+is how we’ll tell Angular that we’re done modifying the request. If we don’t, the request will fail. 
+
+
+
+
