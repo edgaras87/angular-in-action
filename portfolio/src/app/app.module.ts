@@ -9,12 +9,15 @@ import { StocksComponent } from './stocks/stocks.component';
 import { InvestmentsComponent } from './investments/investments.component';
 import { StocksInterceptorService } from './services/stocks-interceptor.service';
 import { LocalStorageService } from './services/local-storage.service';
+import { AlertComponent } from './alert/alert.component';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     StocksComponent,
-    InvestmentsComponent
+    InvestmentsComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,7 @@ import { LocalStorageService } from './services/local-storage.service';
     ClarityModule
   ],
   providers: [
+    AlertService,
     AccountService,
     LocalStorageService,
     {
