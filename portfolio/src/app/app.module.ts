@@ -8,6 +8,7 @@ import { AccountService } from './services/account.service';
 import { StocksComponent } from './stocks/stocks.component';
 import { InvestmentsComponent } from './investments/investments.component';
 import { StocksInterceptorService } from './services/stocks-interceptor.service';
+import { LocalStorageService } from './services/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { StocksInterceptorService } from './services/stocks-interceptor.service'
   ],
   providers: [
     AccountService,
+    LocalStorageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: StocksInterceptorService,

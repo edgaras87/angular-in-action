@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService } from './local-storage.service';
 import { Stock } from './stocks.model';
 
 const defaultBalance: number = 10000;
@@ -16,8 +17,12 @@ export class AccountService {
   get value(): number { return this._value; }
   get stocks(): Stock[] { return this._stocks; }
 
-  init() {
+  constructor(private localStorageService: LocalStorageService) {}
 
+  init() {
+    this._stocks = this.localStorageService.get('stocks', []);
+    this._balance = this.localStorageService.get('balance', defaultBalance);
+    this._cost = this.localStorageService.get('cost', 0);
   }
 
   purchase(stock: Stock): void {
@@ -29,6 +34,7 @@ export class AccountService {
       stock.change = 0;
       this._stocks.push(stock);
       this.calculateValue();
+      this.cacheValues();
     }
   }
 
@@ -39,6 +45,7 @@ export class AccountService {
       this._stocks.splice(index, 1);
       this._cost = this.debit(stock.cost, this.cost);
       this.calculateValue();
+      this.cacheValues();
     }
   }
 
@@ -46,6 +53,7 @@ export class AccountService {
     this._stocks = [];
     this._balance = defaultBalance;
     this._value = this._cost = 0;
+    this.cacheValues();
   }
 
   calculateValue() {
@@ -60,6 +68,12 @@ export class AccountService {
 
   private credit(amount: number, balance: number): number {
     return (balance * 100 + amount * 100) / 100;
+  }
+
+  private cacheValues() {
+     this.localStorageService.set('stocks', this.stocks);
+     this.localStorageService.set('balance', this.balance);
+     this.localStorageService.set('cost', this.cost);
   }
 
 }

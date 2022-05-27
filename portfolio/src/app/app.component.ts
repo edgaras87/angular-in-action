@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(public accountService: AccountService, private stocksService: StocksService) {}
 
   ngOnInit(): void {
+    this.accountService.init();
       this.load();
 
       this.interval = setInterval( () => {
