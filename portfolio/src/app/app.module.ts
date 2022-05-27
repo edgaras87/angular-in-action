@@ -11,6 +11,7 @@ import { StocksInterceptorService } from './services/stocks-interceptor.service'
 import { LocalStorageService } from './services/local-storage.service';
 import { AlertComponent } from './alert/alert.component';
 import { AlertService } from './services/alert.service';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AlertService } from './services/alert.service';
   providers: [
     AlertService,
     AccountService,
+    CurrencyPipe,
     LocalStorageService,
     {
       provide: HTTP_INTERCEPTORS,
