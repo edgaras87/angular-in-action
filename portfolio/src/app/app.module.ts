@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ClarityModule } from '@clr/angular';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { AccountService } from './services/account.service';
@@ -15,6 +16,7 @@ import { InvestmentsComponent } from './investments/investments.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ClarityModule
   ],
   providers: [AccountService],
