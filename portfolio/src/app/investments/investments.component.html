@@ -14,7 +14,7 @@
           <td>{{stock.cost | currency:'USD':'symbol':'.2'}}</td>
           <td>{{stock.price | currency:'USD':'symbol':'.2'}}</td>
           <td>{{stock.change | currency:'USD':'symbol':'.2'}}</td>
-          <td class="btn-cell"><button class="btn btn-sm" >Sell</button></td>
+          <td class="btn-cell"><button class="btn btn-sm" (click)="sell(i)">Sell</button></td>
         </tr>
         <tr *ngIf="!stocks.length">
           <td colspan="5">You don't have any stocks, buy some!</td>
@@ -23,9 +23,9 @@
       <tfoot>
         <tr>
           <th>Totals</th>
-          <th>{{0 | currency:'USD':'symbol':'.2'}}</th>
-          <th>{{0 | currency:'USD':'symbol':'.2'}}</th>
-          <th>{{0 | currency:'USD':'symbol':'.2'}}</th>
+          <th>{{getAccountService().cost | currency:'USD':'symbol':'.2'}}</th>
+          <th>{{getAccountService().value | currency:'USD':'symbol':'.2'}}</th>
+          <th>{{getAccountService().value - getAccountService().cost | currency:'USD':'symbol':'.2'}}</th>
           <th></th>
         </tr>
       </tfoot>

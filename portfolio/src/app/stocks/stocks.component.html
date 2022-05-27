@@ -11,7 +11,7 @@
         <clr-dg-cell>{{stock.name}}</clr-dg-cell>
         <clr-dg-cell>{{stock.price | currency:'USD':'symbol':'.2'}}</clr-dg-cell>
         <clr-dg-cell>{{stock.change | currency:'USD':'symbol':'.2'}}</clr-dg-cell>
-        <clr-dg-cell class="btn-cell"><button class="btn btn-sm">Buy</button></clr-dg-cell>
+        <clr-dg-cell class="btn-cell"><button class="btn btn-sm" (click)="buy(stock)">Buy</button></clr-dg-cell>
     </clr-dg-row>
 
     <clr-dg-footer>
