@@ -14,8 +14,8 @@
             <a class="nav-link nav-icon">
                 <clr-icon shape="talk-bubbles"></clr-icon>
             </a>
-            <a class="nav-link nav-icon">
-                <clr-icon shape="logout"></clr-icon>
+            <a class="nav-link nav-icon" (click)="logout()" *ngIf="!user.isGuest()">
+                <clr-icon shape="logout" ></clr-icon>
             </a>
         </div>
     </header>
