@@ -10,4 +10,10 @@ export class ForumsService {
     return this._data;
   }
 
+  forum(forumAlias: string) {
+    return this._data.find( row => {
+      return row.alias === forumAlias;
+    });
+  }
+
 }

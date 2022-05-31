@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ForumsComponent } from './forums/forums.component';
 import { ForumsService } from './services/forums.service';
+import { ForumComponent } from './forum/forum.component';
 
 const forumsRoutes: Routes = [
-  { path: 'forums', component: ForumsComponent}
+  { path: 'forums', component: ForumsComponent},
+  { path: 'forums/:forum_alias', component: ForumComponent}
 ]
 
 @NgModule({
   declarations: [
-    ForumsComponent
+    ForumsComponent,
+    ForumComponent
   ],
   imports: [
     CommonModule,
