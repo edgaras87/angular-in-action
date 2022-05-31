@@ -17,6 +17,7 @@ export class ForumComponent implements OnInit {
     // such as the current URL, query or router parameters (and their current values),
     // information about any children or parent routes, and more
     private route: ActivatedRoute,
+    private router: Router,
     private forumService: ForumsService) {}
 
     ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ForumComponent implements OnInit {
           
           // 'forum_alias' attribute is from  forumsRoutes: Routes = [ ...  { path: 'forums/:forum_alias' ...
           this.forum = this.forumService.forum(params['forum_alias']);
+          if (!this.forum) this.router.navigate(['/not-found']);
         });
     }
 

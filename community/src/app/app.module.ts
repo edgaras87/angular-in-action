@@ -9,14 +9,18 @@ import { ForumComponent } from './forums/forum/forum.component';
 import { ForumsModule } from './forums/forums.module';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './services/user.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRouters: Routes = [
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/forums', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent }
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
