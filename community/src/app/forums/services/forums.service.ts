@@ -16,4 +16,16 @@ export class ForumsService {
     });
   }
 
+  threads(forumAlias: string) {
+    return this._data.find(row=>{
+      return row.alias === forumAlias;
+    })?.threads;
+  }
+
+  thread(forumAlias: string, threadAlias: string) {
+    return this.forum(forumAlias)?.threads.find(row=>{
+      return row.alias === threadAlias;
+    });
+  }
+
 }
