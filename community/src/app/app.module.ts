@@ -5,11 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClarityModule } from '@clr/angular';
 
 import { AppComponent } from './app.component';
+import { ForumsModule } from './forums/forums.module';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './services/user.service';
 
 const appRouters: Routes = [
   { path: 'login', component: LoginComponent }
+  //{ path: 'forums', loadChildren: () => import('./forums/forums.module').then(m => m.FormsModule) }
+  //{ path: '', redirectTo: '/forums', pathMatch: 'full' }
 ];
 @NgModule({
   declarations: [
@@ -19,8 +22,9 @@ const appRouters: Routes = [
   imports: [
     BrowserModule,
     ClarityModule,
-    RouterModule.forRoot(appRouters),
-    FormsModule
+    FormsModule,
+    ForumsModule,
+    RouterModule.forRoot(appRouters)
   ],
   providers: [
     UserService
