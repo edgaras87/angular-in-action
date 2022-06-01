@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Data } from './data';
+import { Data, Users } from './data';
 
 @Injectable()
 export class ForumsService {
 
+  private _users = Users;
   private _data = Data;
 
   get forums() {
@@ -26,6 +27,10 @@ export class ForumsService {
     return this.forum(forumAlias)?.threads.find(row=>{
       return row.alias === threadAlias;
     });
+  }
+
+  get users() {
+    return this._users;
   }
 
 }
