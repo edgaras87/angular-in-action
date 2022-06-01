@@ -10,6 +10,7 @@ import { ForumsService } from '../forums/services/forums.service';
 export class ChatListComponent implements OnInit {
 
   users: any[];
+  talkTo: string;
 
   constructor(private router: Router,
               private forumservice: ForumsService) { }
