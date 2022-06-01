@@ -13,12 +13,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatBotService } from './services/chat-bot.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const appRouters: Routes = [
   { path: 'login', component: LoginComponent },
   // tell the router to render this component inside of the  router outlet with the name "chat"
-  { path: 'users', component: ChatListComponent, outlet: 'chat' },
-  { path: 'users/:username', component: ChatComponent, outlet: 'chat' },
+  { path: 'users', component: ChatListComponent, outlet: 'chat', canActivate: [AuthGuardService] },
+  { path: 'users/:username', component: ChatComponent, outlet: 'chat', canActivate: [AuthGuardService] },
   { path: '', redirectTo: '/forums', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
@@ -40,7 +41,8 @@ const appRouters: Routes = [
   ],
   providers: [
     UserService,
-    ChatBotService
+    ChatBotService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

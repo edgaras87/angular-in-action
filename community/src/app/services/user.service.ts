@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 let username = localStorage.getItem('username') || '';
 let guest = (username) ? false : true;
 
 @Injectable()
 export class UserService {
+
+constructor(private router: Router) {}
 
   isGuest() {
     return guest;
@@ -24,6 +27,8 @@ export class UserService {
     username = '';
     guest = true;
     localStorage.setItem('username', '');
+    // to close opend chat when logout button pressed
+    this.router.navigate([{outlets: {chat: null}}]);
   }
   
   

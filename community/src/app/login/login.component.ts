@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Query } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -7,14 +7,28 @@ import { UserService } from '../services/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   username: string = '';
   password: string = '';
   return: string = '';
 
   constructor(private userService: UserService,
-              private router: Router) {}
+              private router: Router,
+              private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params: any) => {
+      this.return = params['return'] || '/forums';
+      if(!this.userService.isGuest) {
+        this.goto();
+      }
+    });
+  }
+
+  private goto() {
+    this.router.navigateByUrl(this.return);
+  }
 
 
   login() {
