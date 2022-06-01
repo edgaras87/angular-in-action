@@ -20,6 +20,10 @@ const appRouters: Routes = [
   // tell the router to render this component inside of the  router outlet with the name "chat"
   { path: 'users', component: ChatListComponent, outlet: 'chat', canActivate: [AuthGuardService] },
   { path: 'users/:username', component: ChatComponent, outlet: 'chat', canActivate: [AuthGuardService] },
+  // module lazy loading  (asynchronous loading)
+  { path: 'blogs', 
+    loadChildren: ()=> import( './blogs/blogs.module').then(x => x.BlogsModule)
+  },
   { path: '', redirectTo: '/forums', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
