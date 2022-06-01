@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { id } from '@cds/core/internal';
 import { data } from './data';
 
 @Injectable({
@@ -10,6 +11,12 @@ export class BlogsService {
 
   get posts() {
     return this._data;
+  }
+
+  post(id: number) {
+    return this._data.find(post => {
+      return post.post_id === id;
+    });
   }
 
 }
