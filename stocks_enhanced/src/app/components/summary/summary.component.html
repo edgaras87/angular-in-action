@@ -1,5 +1,5 @@
 <div class="mdl-card stock-card mdl-shadow--2dp" style="width: 100%;"
-    [ngClass]="{increase: isPositive(), decrease: isNegative()}">
+    [cardType]="stock.change" [@fadeIn]="'in'">
     <span>
         <div class="mdl-card__title">
             <h4 style="color: #fff; margin: 0">
