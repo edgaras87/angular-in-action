@@ -12,6 +12,8 @@ import { ManageComponent } from './components/manage/manage.component';
 import { AppRoutes } from './app.routes';
 import { CardTypeDirective } from './directives/card-type.directive';
 import { DelayDirective } from './directives/delay.directive';
+import { ChangePipe } from './pipes/change.pipe';
+import { CurrencyPipe, PercentPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { DelayDirective } from './directives/delay.directive';
     ManageComponent,
     CardTypeDirective,
     DelayDirective,
+    ChangePipe,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,11 @@ import { DelayDirective } from './directives/delay.directive';
     BrowserAnimationsModule,
     AppRoutes
   ],
-  providers: [StocksService],
+  providers: [
+    StocksService,
+    CurrencyPipe,
+    PercentPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
