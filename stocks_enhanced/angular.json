@@ -72,6 +72,7 @@
             },
             "development": {
               "browserTarget": "stocks_enhanced:build:development"
+              // "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

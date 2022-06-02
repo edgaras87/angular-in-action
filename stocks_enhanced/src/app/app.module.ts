@@ -14,6 +14,8 @@ import { CardTypeDirective } from './directives/card-type.directive';
 import { DelayDirective } from './directives/delay.directive';
 import { ChangePipe } from './pipes/change.pipe';
 import { CurrencyPipe, PercentPipe } from '@angular/common';
+import { ChangeDetectorPipe } from './pipes/change-detector.pipe';
+import { NewsPipe } from './pipes/news.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { CurrencyPipe, PercentPipe } from '@angular/common';
     CardTypeDirective,
     DelayDirective,
     ChangePipe,
+    ChangeDetectorPipe,
+    NewsPipe,
   ],
   imports: [
     BrowserModule,
