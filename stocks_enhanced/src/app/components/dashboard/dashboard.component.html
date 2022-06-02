@@ -2,6 +2,6 @@
     <div class="mdl-cell mdl-cell--12-col" *ngIf="stocks.length < 0" 
         style="text-align:center;"> Loading </div>
     <div class="mdl-cell mdl-cell--3-col" *ngFor="let stock of stocks">
-        <summary [stock]="stock"></summary>
+        <summary [stock]="stock" cardHover></summary>
     </div>
 </div>
