@@ -20,12 +20,15 @@ import { CustomerComponent } from './customer/customer.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { FormsModule } from '@angular/forms';
 import { PhoneDirective } from './validators/phone.directive';
+import { InvoicesComponent } from './invoices/invoices.component';
 
 export const ROUTES: Routes = [
   { path: 'customers', component: CustomersComponent },
   { path: 'customers/create', component: CustomerFormComponent },
   { path: 'customers/:customerId', component: CustomerComponent },
   { path: 'customers/:customerId/edit', component: CustomerFormComponent },
+  { path: 'invoices', component: InvoicesComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'invoices' }
 
 ]
 @NgModule({
@@ -34,7 +37,8 @@ export const ROUTES: Routes = [
     CustomersComponent,
     CustomerComponent,
     CustomerFormComponent,
-    PhoneDirective
+    PhoneDirective,
+    InvoicesComponent
   ],
   imports: [
     BrowserModule,
