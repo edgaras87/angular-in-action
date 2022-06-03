@@ -14,14 +14,17 @@ import {
 } from '@angular/material';
 import { CustomersService } from './services/customers.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerComponent } from './customer/customer.component';
 
 export const ROUTES: Routes = [
   { path: 'customers', component: CustomersComponent },
+  { path: 'customers/:customerId', component: CustomerComponent },
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersComponent
+    CustomersComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
