@@ -3,15 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CovalentLayoutModule, CovalentStepsModule } from '@covalent/core';
+import { CustomersComponent } from './customers/customers.component';
+import { RouterModule, Routes } from '@angular/router';
 
+import {
+  MdButtonModule
+} from '@angular/material';
+
+export const ROUTES: Routes = [
+  { path: 'customers', component: CustomersComponent },
+]
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomersComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(ROUTES),
     CovalentLayoutModule,
-    CovalentStepsModule
+    CovalentStepsModule,
+    MdButtonModule
   ],
   providers: [],
   bootstrap: [
