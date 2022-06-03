@@ -1,0 +1,24 @@
+<div *tdLoading="'customer'">
+  <form *ngIf="customer" #form="ngForm" (ngSubmit)="save()">
+    <md-card>
+      <md-card-header>Edit Customer</md-card-header>
+        <md-card-content>
+          <md-input-container>
+            <input name="customer" mdInput placeholder="Customer Name" [(ngModel)]="customer.name">
+          </md-input-container>
+          <md-input-container>
+            <input name="email" mdInput type="email" placeholder="Email" [(ngModel)]="customer.email">
+          </md-input-container>
+          <md-input-container>
+            <input name="phone" mdInput type="tel" placeholder="Phone" [(ngModel)]="customer.phone">
+          </md-input-container>
+        </md-card-content>
+        <md-card-actions>
+          <button type="button" md-button (click)="delete()" *ngIf="customer.id">Delete</button>
+          <button type="button" md-button (click)="cancel()">Cancel</button>
+          <button type="submit" md-raised-button color="primary" [disabled]="form.invalid">Save</button>
+        </md-card-actions>
+        {{customer | json}}
+    </md-card>
+  </form>
+</div>

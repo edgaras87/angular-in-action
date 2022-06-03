@@ -39,7 +39,7 @@ export class RestService {
   }
 
   update<T>(id: number, body: any) {
-    return this.http.put<T>(this.url + '/', body);
+    return this.http.put<T>(this.url + '/' + id, body);
   }
 
   delete<T>(id: number) {
