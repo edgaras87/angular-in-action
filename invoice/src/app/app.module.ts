@@ -11,16 +11,15 @@ import {
   MdIconModule,
   MdListModule,
   MdButtonModule,
-  MdInputModule,
-  MdSelectModule
-
-
+  MdInputModule
 } from '@angular/material';
+
 import { CustomersService } from './services/customers.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { FormsModule } from '@angular/forms';
+import { PhoneDirective } from './validators/phone.directive';
 
 export const ROUTES: Routes = [
   { path: 'customers', component: CustomersComponent },
@@ -34,7 +33,8 @@ export const ROUTES: Routes = [
     AppComponent,
     CustomersComponent,
     CustomerComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    PhoneDirective
   ],
   imports: [
     BrowserModule,
