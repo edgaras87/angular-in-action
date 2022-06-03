@@ -2,13 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CovalentLayoutModule, CovalentStepsModule } from '@covalent/core';
+import { CovalentLayoutModule, CovalentLoadingModule, CovalentStepsModule } from '@covalent/core';
 import { CustomersComponent } from './customers/customers.component';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
+  MdIconModule,
+  MdListModule,
   MdButtonModule
 } from '@angular/material';
+import { CustomersService } from './services/customers.service';
+import { HttpClientModule } from '@angular/common/http';
 
 export const ROUTES: Routes = [
   { path: 'customers', component: CustomersComponent },
@@ -21,11 +26,18 @@ export const ROUTES: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
+    BrowserAnimationsModule,
+    HttpClientModule,
     CovalentLayoutModule,
     CovalentStepsModule,
-    MdButtonModule
+    CovalentLoadingModule,
+    MdButtonModule,
+    MdIconModule,
+    MdListModule
   ],
-  providers: [],
+  providers: [
+    CustomersService
+  ],
   bootstrap: [
     AppComponent
   ]

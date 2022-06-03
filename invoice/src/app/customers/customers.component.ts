@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TdLoadingService } from '@covalent/core';
+import { Customer } from 'app/services/customer';
+import { CustomersService } from 'app/services/customers.service';
 
 @Component({
   selector: 'app-customers',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomersComponent implements OnInit {
 
-  constructor() { }
+  customers: Customer[];
+
+  constructor(
+    private loadingService: TdLoadingService,
+    private customersService: CustomersService  ) { }
 
   ngOnInit() {
+    this.loadingService.register('customers');
+    this.customersService.query<Array<Customer>>({sort: 'created', order: 'desc'})
+      .subscribe(customers => {
+        this.customers = customers;
+        this.loadingService.resolve('customers');
+      });
   }
 
 }

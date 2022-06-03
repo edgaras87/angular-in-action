@@ -1,3 +1,10 @@
-<p>
-  customers works!
-</p>
+<div *tdLoading="'customers'">
+    <md-list *ngIf="customers">
+        <h3 md-subheader>Customers</h3>
+        <md-list-item *ngFor="let customer of customers">
+            <md-icon md-list-icon>note</md-icon>
+            <h4 md-line>{{customer.name}}</h4>
+            <p md-line>{{customer.email}}</p>
+        </md-list-item>
+    </md-list>
+</div>
