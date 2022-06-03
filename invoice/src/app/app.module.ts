@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { PhoneDirective } from './validators/phone.directive';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { InvoicesService } from './services/invoices.service';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 export const ROUTES: Routes = [
   { path: 'customers', component: CustomersComponent },
@@ -29,6 +30,7 @@ export const ROUTES: Routes = [
   { path: 'customers/:customerId', component: CustomerComponent },
   { path: 'customers/:customerId/edit', component: CustomerFormComponent },
   { path: 'invoices', component: InvoicesComponent },
+  { path: 'invoices/:invoiceId', component: InvoiceComponent },
   { path: '', pathMatch: 'full', redirectTo: 'invoices' }
 
 ]
@@ -39,7 +41,8 @@ export const ROUTES: Routes = [
     CustomerComponent,
     CustomerFormComponent,
     PhoneDirective,
-    InvoicesComponent
+    InvoicesComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,
