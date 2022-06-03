@@ -21,6 +21,7 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { FormsModule } from '@angular/forms';
 import { PhoneDirective } from './validators/phone.directive';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { InvoicesService } from './services/invoices.service';
 
 export const ROUTES: Routes = [
   { path: 'customers', component: CustomersComponent },
@@ -56,7 +57,8 @@ export const ROUTES: Routes = [
     MdInputModule
   ],
   providers: [
-    CustomersService
+    CustomersService,
+    InvoicesService
   ],
   bootstrap: [
     AppComponent
