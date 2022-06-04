@@ -11,18 +11,23 @@ import {
   MdIconModule,
   MdListModule,
   MdButtonModule,
-  MdInputModule
+  MdInputModule,
+  MdDatepickerModule,
+  MdNativeDateModule,
+  MdSlideToggleModule,
+  MdSelectModule
 } from '@angular/material';
 
 import { CustomersService } from './services/customers.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PhoneDirective } from './validators/phone.directive';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { InvoicesService } from './services/invoices.service';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { InvoiceFormComponent } from './invoice-form/invoice-form.component';
 
 export const ROUTES: Routes = [
   { path: 'customers', component: CustomersComponent },
@@ -30,7 +35,9 @@ export const ROUTES: Routes = [
   { path: 'customers/:customerId', component: CustomerComponent },
   { path: 'customers/:customerId/edit', component: CustomerFormComponent },
   { path: 'invoices', component: InvoicesComponent },
+  { path: 'invoices/create', component: InvoiceFormComponent },
   { path: 'invoices/:invoiceId', component: InvoiceComponent },
+  { path: 'invoices/:invoiceId/edit', component: InvoiceFormComponent },
   { path: '', pathMatch: 'full', redirectTo: 'invoices' }
 
 ]
@@ -42,13 +49,15 @@ export const ROUTES: Routes = [
     CustomerFormComponent,
     PhoneDirective,
     InvoicesComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    InvoiceFormComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     CovalentLayoutModule,
     CovalentStepsModule,
@@ -57,7 +66,11 @@ export const ROUTES: Routes = [
     MdButtonModule,
     MdIconModule,
     MdListModule,
-    MdInputModule
+    MdInputModule,
+    MdDatepickerModule,
+    MdNativeDateModule,
+    MdSlideToggleModule,
+    MdSelectModule
   ],
   providers: [
     CustomersService,
