@@ -8,20 +8,32 @@
 
         <md-input-container>
           <input name="service" mdInput type="text" placeholder="Service" formControlName="service">
+          <md-error *ngIf="invoiceForm.get('service').touched && invoiceForm.get('service').invalid">
+            Service is required
+          </md-error>
         </md-input-container>
 
         <md-input-container>
           <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" formControlName="date">
           <button type="button" mdSuffix [mdDatepickerToggle]="picker"></button>
+          <md-error *ngIf="invoiceForm.get('date').touched && invoiceForm.get('date').invalid">
+            Date is required
+          </md-error>
         </md-input-container>
         <md-datepicker #picker></md-datepicker>
 
         <md-input-container>
           <input name="hours" mdInput type="number" placeholder="Hours" formControlName="hours">
+          <md-error *ngIf="invoiceForm.get('hours').touched && invoiceForm.get('hours').invalid">
+            Hours must be in quarter hour increments
+          </md-error>
         </md-input-container>
 
         <md-input-container>
           <input name="rate" mdInput type="number" placeholder="Rate" formControlName="rate">
+          <md-error *ngIf="invoiceForm.get('rate').touched && invoiceForm.get('rate').invalid">
+            Hours rate is required
+          </md-error>
         </md-input-container>
 
         

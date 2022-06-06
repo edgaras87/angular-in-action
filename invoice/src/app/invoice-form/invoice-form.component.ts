@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { TdDialogService, TdLoadingService } from '@covalent/core';
 import { Customer } from 'app/services/customer';
@@ -7,6 +7,7 @@ import { CustomersService } from 'app/services/customers.service';
 import { Invoice } from 'app/services/invoice';
 import { InvoicesService } from 'app/services/invoices.service';
 import { Observable } from 'rxjs';
+import { HoursValidator } from '../validators/hours.validator'
 
 @Component({
   selector: 'app-invoice-form',
@@ -30,11 +31,11 @@ export class InvoiceFormComponent implements OnInit {
     private route: ActivatedRoute) {
       this.invoiceForm = formBuilder.group({
         id: [''],
-        service: [''],
-        customerId: [''],
-        rate: [''],
-        hours: [''],
-        date: [''],
+        service: ['', [Validators.required]],
+        customerId: ['', [Validators.required]],
+        rate: ['', [Validators.required]],
+        hours: ['', [Validators.required, HoursValidator]],
+        date: ['', [Validators.required]],
         paid: ['']
       });
     }
