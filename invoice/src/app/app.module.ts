@@ -28,6 +28,8 @@ import { InvoicesComponent } from './invoices/invoices.component';
 import { InvoicesService } from './services/invoices.service';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { InvoiceFormComponent } from './invoice-form/invoice-form.component';
+import { HoursDirective } from './validators/hours.directive';
+import { HoursControlComponent } from './hours-control/hours-control.component';
 
 export const ROUTES: Routes = [
   { path: 'customers', component: CustomersComponent },
@@ -48,9 +50,11 @@ export const ROUTES: Routes = [
     CustomerComponent,
     CustomerFormComponent,
     PhoneDirective,
+    HoursDirective,
     InvoicesComponent,
     InvoiceComponent,
-    InvoiceFormComponent
+    InvoiceFormComponent,
+    HoursControlComponent
   ],
   imports: [
     BrowserModule,
